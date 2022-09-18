@@ -4,6 +4,9 @@ const ShebangPlugin = require('webpack-shebang-plugin')
 
 module.exports = {
   mode: 'production',
+  experiments: {
+    'outputModule': true
+  },
   entry: {
     index: './src/index.ts',
     bin: './src/bin.ts',
@@ -38,7 +41,7 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'build'),
     library: {
-      type: 'commonjs',
+      type: 'module',
     },
   },
   plugins: [new ShebangPlugin()],
